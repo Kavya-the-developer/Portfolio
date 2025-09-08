@@ -1,201 +1,259 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #84a6e9;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kavya | Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6ee7b7, #3b82f6, #9333ea);
+      color: #222;
+    }
 
-        header {
-            background-color: #941919;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative; /* Add this */
-        }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .header-content h1 {
-            font-size: 2.5rem;
-        }
+    header::before {
+      content: "✨";
+      font-size: 5rem;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
 
-        /* Add styles for the round profile picture */
-        .profile-picture {
-            width: 100px; /* Adjust the size as needed */
-            height: 100px;
-            border-radius: 75%; /* Create a circular shape */
-            object-fit: cover; /* To ensure the image fills the circular area */
-            position: absolute; /* Add this */
-            top: 75px; /* Adjust top position as needed */
-            left: 75px; /* Adjust left position as needed */
-        }
+    header::after {
+      content: "🌙";
+      font-size: 5rem;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      animation: float 6s ease-in-out infinite alternate;
+    }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-        }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255,255,255,0.7);
+    }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
+    .header-content h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-        }
+    .header-content p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0;
+      font-style: italic;
+    }
 
-        .section-content {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
-        }
+    nav {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        .download-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            align-self: center;
-        }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        .download-button:hover {
-            background-color: #555;
-        }
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #333;
-            color: #fff;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-    </style>
+    nav ul li a:hover {
+      color: #6ee7b7;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+    }
+
+    .section-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section-content h2 {
+      color: #9333ea;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .download-button {
+      background-color: #9333ea;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #6ee7b7;
+      color: #111;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #111;
+      color: #fff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin: 8px 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <!-- Add your profile picture here -->
-            <img src="passport photo.jpg" alt="Your Profile Picture" class="profile-picture">
-            <h1>Pranesh S</h1>
-            <p>Am Mechanical Engineer</p>
-        </div>
-    </header>
+  <header>
+    <div class="header-content">
+      <img src="kavya-profile.jpg" alt="Kavya Profile Picture" class="profile-picture">
+      <h1>Kavya</h1>
+      <p>✨ IT Student | Future Apple Developer | Dreamer & Builder of Magic ✨</p>
+    </div>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Resume</a></li>
-           
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
 
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>I'm a <b>web development</b> expert who is passionate about creating dynamic and user-friendly websites. 
-                I'm driven by the desire to craft high-performance web applications that enhance user experience and provide
-                 seamless digital solutions. With over 7 years of experience in the field, I'm dedicated to staying up to date 
-                 with the latest trends and innovations in the 
-                 web development landscape. I'm also committed to helping others learn more about web technologies, 
-                 best practices, and how to build secure and scalable websites.</p>
+  <section id="about">
+    <div class="section-content">
+      <h2>About Me</h2>
+      <p>
+        I’m <b>Kavya</b>, an aspiring <b>software and app developer</b>, currently studying B.Sc. IT (2024–2027).  
+        My passion lies in <b>Swift, SwiftUI, mobile app development, UI/UX design</b>, and building tools that create real impact.  
+        I learn through output tracing, breaking down logic like a magician decoding spells.  
+        Determined, focused, and always evolving — I’m on a mission to become a recognized developer and join Apple someday. 🍏
+      </p>
+    </div>
+  </section>
 
-        </div>
-    </section>
+  <section id="education">
+    <div class="section-content">
+      <h2>Education</h2>
+      <p><b>B.Sc. IT</b> (2024–2027) – Building strong foundations in software development, data, and emerging tech.</p>
+    </div>
+  </section>
 
-    <section id="education">
-        <div class="section-content">
-            <h2>Education</h2>
-            <p>Deemed University  - Mech</p>
-            
-            
-        </div>
-    </section>
+  <section id="skills">
+    <div class="section-content">
+      <h2>Skills</h2>
+      <ul>
+        <li>Swift & SwiftUI (UI/UX design, app deployment)</li>
+        <li>Kotlin (future goal)</li>
+        <li>Embedded Systems & IoT</li>
+        <li>Python, C++, Java basics</li>
+        <li>SQL & Data Visualization</li>
+        <li>Creative Tech & Entrepreneurship</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>React</li>
-                <li>Mern</li>
-                <li>Cloud Computing</li>
-                <li>Python</li>
-                <li>Spring</li>
-                <li>ML & AI</li>
-                <li>java</li>
-                <li>c++</li>
-                <li>Java script</li>
-            </ul>
-        </div>
-    </section>
+  <section id="projects">
+    <div class="section-content">
+      <h2>Projects</h2>
+      <ul>
+        <li><b>ChatHive</b> – A Swift-based chat app with audio, wallpapers, and themes</li>
+        <li><b>SmartTable</b> – Interactive SwiftUI project with charts & PDF reports</li>
+        <li><b>macOS Search Page</b> – Transparent background, speech recognition & pagination</li>
+        <li><b>Admissions Dashboard</b> – SQL + SwiftUI charts with dynamic filters</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="#">E Cart website</a></li>
-                <li><a href="#">Cloud Security IBM</a></li>
-                <li><a href="#">IBM chatbot</a></li>
-                <li><a href="#">College Portal</a></li> 
-                <!-- Add more project links here -->
-            </ul>
-        </div>
-    </section>
+  <section id="goals">
+    <div class="section-content">
+      <h2>Goals (2025 & Beyond)</h2>
+      <ul>
+        <li>Master Swift, Kotlin, AI, and IoT</li>
+        <li>Score 60–65%+ in UG and prepare for MSc AI (with scholarships)</li>
+        <li>Build a strong GitHub & project portfolio</li>
+        <li>Improve English, journal, and learn new languages</li>
+        <li>Develop multiple income streams & support family business</li>
+        <li>Engage in charity, mentoring, and giving back</li>
+        <li>Make my parents proud ✨</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="resume">
-    
-        <div class="section-content">
-            <center>
-            <h2>Resume</h2>
-            <a href="file.pdf" target="_blank" class="download-button">Download CV</a>
-        </center>
-        </div>
-        
-    </section>
+  <section id="resume">
+    <div class="section-content" style="text-align:center;">
+      <h2>Resume</h2>
+      <a href="Kavya-CV.pdf" target="_blank" class="download-button">Download CV</a>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Pranesh S</p>
-    </footer>
+  <footer>
+    <p>✨ &copy; 2025 Kavya | Designed with Dreams, Magic, and Determination ✨</p>
+  </footer>
 
-    <script>
-        // Smooth scrolling to section when clicking on navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 50,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
