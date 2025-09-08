@@ -3,257 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kavya | Portfolio</title>
+  <title>Kavya | Dreamer of Code & Magic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    /* ===== Reset ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #6ee7b7, #3b82f6, #9333ea);
-      color: #222;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at top left, #0f172a, #1e293b);
+      overflow-x: hidden;
+      position: relative;
     }
 
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      text-align: center;
-      padding: 3rem 1rem 6rem;
-      position: relative;
+    /* ===== Stars Background ===== */
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 0;
       overflow: hidden;
     }
-
-    header::before {
-      content: "✨";
-      font-size: 5rem;
+    .star {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    header::after {
-      content: "🌙";
-      font-size: 5rem;
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      animation: float 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .profile-picture {
-      width: 120px;
-      height: 120px;
       border-radius: 50%;
-      border: 4px solid #fff;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(255,255,255,0.7);
+      background: white;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
     }
 
-    .header-content h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-
-    .header-content p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0;
-      font-style: italic;
-    }
-
-    nav {
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #6ee7b7;
-    }
-
+    /* ===== Sections ===== */
     section {
-      padding: 3rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .section-content {
-      background: #fff;
+    /* ===== Glassmorphism Card ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
       padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      max-width: 900px;
-      margin: auto;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      margin: 1rem 0;
+      max-width: 800px;
+      transition: transform 0.4s ease;
     }
+    .card:hover { transform: translateY(-10px) scale(1.03); }
 
-    .section-content h2 {
-      color: #9333ea;
-      text-align: center;
-      margin-bottom: 1rem;
+    /* ===== Hero Section ===== */
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #00f5ff;
+      box-shadow: 0 0 30px #00f5ff;
+      margin-bottom: 1.5rem;
     }
+    .tagline { font-size: 1.2rem; color: #00f5ff; margin-top: 0.5rem; }
 
-    .download-button {
-      background-color: #9333ea;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: background 0.3s;
+    /* ===== Education Timeline ===== */
+    .timeline {
+      list-style: none;
+      position: relative;
     }
-
-    .download-button:hover {
-      background-color: #6ee7b7;
-      color: #111;
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #00f5ff;
+      transform: translateX(-50%);
     }
-
-    footer {
-      text-align: center;
+    .timeline li {
+      position: relative;
+      margin: 2rem 0;
+      width: 45%;
       padding: 1rem;
-      background-color: #111;
-      color: #fff;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
     }
+    .timeline li:nth-child(odd) { left: 0; }
+    .timeline li:nth-child(even) { left: 55%; }
 
-    ul {
-      padding-left: 20px;
+    /* ===== Skills Cube (3D hover) ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
+    .skill {
+      perspective: 1000px;
+    }
+    .skill div {
+      padding: 2rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,255,255,0.4);
+      transform: rotateY(0deg);
+      transition: transform 0.6s;
+    }
+    .skill:hover div { transform: rotateY(15deg) rotateX(15deg); }
 
-    ul li {
-      margin: 8px 0;
+    /* ===== Projects ===== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 20px rgba(0,255,200,0.4);
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover { transform: perspective(600px) rotateY(10deg) rotateX(5deg) scale(1.05); }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #00f5ff;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <img src="kavya-profile.jpg" alt="Kavya Profile Picture" class="profile-picture">
-      <h1>Kavya</h1>
-      <p>✨ IT Student | Future Apple Developer | Dreamer & Builder of Magic ✨</p>
-    </div>
-  </header>
+  <div class="stars" id="stars"></div>
 
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#resume">Resume</a></li>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="https://via.placeholder.com/180" alt="Kavya Profile">
+    <h1>Kavya ✨</h1>
+    <p class="tagline">IT Student | Future Apple Developer | Dreamer of Code & Magic</p>
+  </section>
+
+  <!-- About -->
+  <section>
+    <div class="card">
+      <h2>🌌 About Me</h2>
+      <p>I’m Kavya, building spells with code. A slow learner but determined, mastering Swift, tracing logic like stardust paths, and dreaming to become an Apple Developer.</p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>🎓 Education</h2>
+    <ul class="timeline">
+      <li>BSc IT (2024–2027) — Building foundation in coding</li>
+      <li>MSc AI (Future) — Researching stars of intelligence</li>
     </ul>
-  </nav>
+  </section>
 
-  <section id="about">
-    <div class="section-content">
-      <h2>About Me</h2>
-      <p>
-        I’m <b>Kavya</b>, an aspiring <b>software and app developer</b>, currently studying B.Sc. IT (2024–2027).  
-        My passion lies in <b>Swift, SwiftUI, mobile app development, UI/UX design</b>, and building tools that create real impact.  
-        I learn through output tracing, breaking down logic like a magician decoding spells.  
-        Determined, focused, and always evolving — I’m on a mission to become a recognized developer and join Apple someday. 🍏
-      </p>
+  <!-- Skills -->
+  <section>
+    <h2>🛠 Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><div>Swift</div></div>
+      <div class="skill"><div>UI/UX</div></div>
+      <div class="skill"><div>Entrepreneurship</div></div>
+      <div class="skill"><div>AI</div></div>
     </div>
   </section>
 
-  <section id="education">
-    <div class="section-content">
-      <h2>Education</h2>
-      <p><b>B.Sc. IT</b> (2024–2027) – Building strong foundations in software development, data, and emerging tech.</p>
+  <!-- Projects -->
+  <section>
+    <h2>🚀 Projects</h2>
+    <div class="projects">
+      <div class="project-card">ChatHive — Swift chat app with audio + themes</div>
+      <div class="project-card">macOS Search Page — Transparent, speech-enabled search UI</div>
+      <div class="project-card">SmartTable Dashboard — College admissions visualized with magic</div>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="section-content">
-      <h2>Skills</h2>
-      <ul>
-        <li>Swift & SwiftUI (UI/UX design, app deployment)</li>
-        <li>Kotlin (future goal)</li>
-        <li>Embedded Systems & IoT</li>
-        <li>Python, C++, Java basics</li>
-        <li>SQL & Data Visualization</li>
-        <li>Creative Tech & Entrepreneurship</li>
-      </ul>
+  <!-- Goals -->
+  <section>
+    <div class="card">
+      <h2>🌠 Mission Goals</h2>
+      <p>Phase 1: Master Swift 🚀</p>
+      <p>Phase 2: Explore AI 🌌</p>
+      <p>Phase 3: Become Apple Developer 🌍</p>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="section-content">
-      <h2>Projects</h2>
-      <ul>
-        <li><b>ChatHive</b> – A Swift-based chat app with audio, wallpapers, and themes</li>
-        <li><b>SmartTable</b> – Interactive SwiftUI project with charts & PDF reports</li>
-        <li><b>macOS Search Page</b> – Transparent background, speech recognition & pagination</li>
-        <li><b>Admissions Dashboard</b> – SQL + SwiftUI charts with dynamic filters</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="goals">
-    <div class="section-content">
-      <h2>Goals (2025 & Beyond)</h2>
-      <ul>
-        <li>Master Swift, Kotlin, AI, and IoT</li>
-        <li>Score 60–65%+ in UG and prepare for MSc AI (with scholarships)</li>
-        <li>Build a strong GitHub & project portfolio</li>
-        <li>Improve English, journal, and learn new languages</li>
-        <li>Develop multiple income streams & support family business</li>
-        <li>Engage in charity, mentoring, and giving back</li>
-        <li>Make my parents proud ✨</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="resume">
-    <div class="section-content" style="text-align:center;">
-      <h2>Resume</h2>
-      <a href="Kavya-CV.pdf" target="_blank" class="download-button">Download CV</a>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>✨ &copy; 2025 Kavya | Designed with Dreams, Magic, and Determination ✨</p>
+    ✨ Designed with Magic & Determination | Kavya 2025 ✨
   </footer>
 
+  <!-- Stars Generator -->
   <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 50,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      const size = Math.random() * 3 + 'px';
+      star.className = 'star';
+      star.style.width = size;
+      star.style.height = size;
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      starsContainer.appendChild(star);
+    }
   </script>
 </body>
 </html>
